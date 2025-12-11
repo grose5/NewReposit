@@ -6,6 +6,7 @@ public class Package {
     private final String name;
     private final double weight;
 
+
     public Package(String name, double weight){
         this.name = name;
         this.weight = weight;
