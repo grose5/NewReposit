@@ -212,4 +212,21 @@ public class ProductTest {
         FilterEndsWith f1 = new FilterEndsWith("бук");
         assertEquals(1, ProductService.countByFilter(pb1, f1));
     }
+
+    @Test
+    public void test23(){
+        Package p1 = new Package("Картонная коробка",1.0);
+        Package p2 = new Package("Металлический сейф",250.0);
+        Package p3 = new Package("Коробка для набора",2.0);
+
+        PackageWeightedProduct pw1 = new PackageWeightedProduct(p1, "книжки", "Мат анализ", 4.0);
+        PackagePieceProduct pp1 = new PackagePieceProduct(p2, "Ноутбук", "Thinkbook", 1.5, 5);
+
+        IPackedItem[] ip1 = {pw1,pp1};
+        PackagedSetProduct psp1 = new PackagedSetProduct(p3, ip1);
+
+        assertEquals("Коробка для набора", psp1.getName());
+        assertEquals(0, Double.compare(1+4+ 1.5*5 + 250, psp1.getNetto()));
+        assertEquals(0, Double.compare(1+4+ 1.5*5 + 250 + 2, psp1.getBrutto()));
+    }
 }

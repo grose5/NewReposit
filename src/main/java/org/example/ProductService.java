@@ -10,4 +10,12 @@ public class ProductService{
         }
         return c;
     }
+
+
+    /*public static int countByFilterDeep(ProductBatch batch, IFilter filter){
+        int c = 0;
+
+
+    }*/
 }
+
